@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Client-server example</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="center-block">
+        <h1>Client-server example</h1>
+        <p>Open the console to see the output.</p>
+
+        <div class="loading">
+            <img src="./loading-gif.gif" alt="" width="50px">
+        </div>
+
+        <div class="status-block">
+            <h2>Status</h2>
+            <button id="status-button">Get status</button>
+            <div id="status-result"></div>
+        </div>
+
+        <hr>
+
+        <div class="data-block">
+            <h2>Data</h2>
+            <input type="text" id="data-input" placeholder="Enter message">
+            <button id="data-button">Send data</button>
+            <div id="data-result"></div>
+        </div>
+    </div>
+    <div id="app"></div>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+name: nestjs-starter-with-db
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"   # PostgreSQL port
+    env_file:
+      - .env
+    volumes:
+      - nestjs-starter-with-db-postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    expose:
+      - 5432
+
+  migrations:
+    image: flyway/flyway
+    volumes:
+      - ./migrations/db:/flyway/sql
+    environment:
+      - FLYWAY_URL=jdbc:postgresql://${DB_HOST}:5432/${DB_DATABASE}
+      - FLYWAY_USER=${DB_USERNAME}
+      - FLYWAY_PASSWORD=${DB_PASSWORD}
+      - FLYWAY_DEFAULT_SCHEMA=${DB_SCHEMA}
+      - WAIT_HOSTS=db:5432
+      - WAIT_BEFORE_HOSTS=30
+      - WAIT_HOSTS_TIMEOUT=120
+    env_file:
+      - .env
+    command: ["migrate"]
+    restart: on-failure:10
+    depends_on:
+      - db 
+
+volumes:
+  nestjs-starter-with-db-postgres-data:
+    external: true

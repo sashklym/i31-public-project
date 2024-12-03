@@ -1,0 +1,38 @@
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 1px solid grey;
+    padding: 10px;
+}
+
+#status-result, #data-result {
+    display: none;
+    white-space: pre-wrap; /* Preserve whitespace and line breaks */
+    font-family: monospace; /* Use a monospace font for better readability */
+    background: #eee;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 10px;
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 15px;
+}
+
+.small-text {
+    font-size: 10px;
+    color: #666;
+}

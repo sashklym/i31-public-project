@@ -1,0 +1,14 @@
+{
+    "name": "client-server-architecture",
+    "version": "1.0.0",
+    "description": "Client Server Architecture",
+    "main": "server/index.js",
+    "scripts": {
+        "start": "node server/index.js",
+        "ws": "node server/chat.js"
+    },
+    "author": "I31",
+    "dependencies": {
+        "ws": "^8.18.0"
+    }
+}
